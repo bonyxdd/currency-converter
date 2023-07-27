@@ -51,8 +51,10 @@ const CurrencyForm: React.FC = () => {
   }, [amount, currency]);
 
   const handleConvert = () => {
-    if (amount.trim() === "" || amount === "." || parseFloat(amount) === 0) {
-    } else {
+      if (amount.trim() === "" || amount === "." || parseFloat(amount) === 0) {
+        setError("Enter a valid amount");
+      } else {
+        setError("");
       const convertedAmount = ConvertUSD(
         Number(amount),
         currency,
